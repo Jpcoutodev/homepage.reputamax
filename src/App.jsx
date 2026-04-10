@@ -939,44 +939,46 @@ function ForWho() {
 function FAQItem({ q, a, open, onClick }) {
   const contentRef = useRef(null);
   return (
-    <div
-      className={`reveal overflow-hidden rounded-2xl border bg-white transition-all duration-300 ${
-        open
-          ? 'border-teal/40 shadow-[0_15px_45px_-15px_rgba(78,166,32,0.35)]'
-          : 'border-navy/10 shadow-[0_8px_25px_-15px_rgba(26,26,46,0.15)]'
-      }`}
-    >
-      <button
-        onClick={onClick}
-        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
-      >
-        <span className="font-display text-base font-semibold text-navy sm:text-lg">
-          {q}
-        </span>
-        <span
-          className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full transition ${
-            open
-              ? 'bg-mint text-navy shadow-glow-mint'
-              : 'bg-mist text-navy'
-          }`}
-        >
-          {open ? (
-            <Minus className="h-4 w-4" />
-          ) : (
-            <Plus className="h-4 w-4" />
-          )}
-        </span>
-      </button>
+    <div className="reveal">
       <div
-        ref={contentRef}
-        className="overflow-hidden transition-all duration-500"
-        style={{
-          maxHeight: open ? contentRef.current?.scrollHeight + 'px' : '0px',
-        }}
+        className={`overflow-hidden rounded-2xl border bg-white transition-all duration-300 ${
+          open
+            ? 'border-teal/40 shadow-[0_15px_45px_-15px_rgba(78,166,32,0.35)]'
+            : 'border-navy/10 shadow-[0_8px_25px_-15px_rgba(26,26,46,0.15)]'
+        }`}
       >
-        <p className="px-6 pb-6 text-[15px] leading-relaxed text-slategray">
-          {a}
-        </p>
+        <button
+          onClick={onClick}
+          className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+        >
+          <span className="font-display text-base font-semibold text-navy sm:text-lg">
+            {q}
+          </span>
+          <span
+            className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full transition ${
+              open
+                ? 'bg-mint text-navy shadow-glow-mint'
+                : 'bg-mist text-navy'
+            }`}
+          >
+            {open ? (
+              <Minus className="h-4 w-4" />
+            ) : (
+              <Plus className="h-4 w-4" />
+            )}
+          </span>
+        </button>
+        <div
+          ref={contentRef}
+          className="overflow-hidden transition-all duration-500"
+          style={{
+            maxHeight: open ? contentRef.current?.scrollHeight + 'px' : '0px',
+          }}
+        >
+          <p className="px-6 pb-6 text-[15px] leading-relaxed text-slategray">
+            {a}
+          </p>
+        </div>
       </div>
     </div>
   );
