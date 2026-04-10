@@ -4,6 +4,20 @@ const SUPABASE_ANON_KEY =
   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFnYnhkdXZpcGVhZHljeHJlbXFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYyNDMxNTMsImV4cCI6MjA4MTgxOTE1M30.IqbONOZfy6OUXSqARdzkIW1XZfhJu2CxMk5oeVhZtrc';
 
 /**
+ * Gera ou recupera um ID único do visitante no localStorage.
+ * Persiste entre sessões no mesmo navegador/dispositivo.
+ */
+function getVisitorId() {
+  const KEY = 'rpx_visitor_id';
+  let id = localStorage.getItem(KEY);
+  if (!id) {
+    id = crypto.randomUUID();
+    localStorage.setItem(KEY, id);
+  }
+  return id;
+}
+
+/**
  * Insere uma linha na tabela landingpage_reputamax via REST API.
  * Usa a política RLS insert-only — nenhum dado pode ser lido pelo anon.
  */
@@ -23,6 +37,7 @@ export async function trackEvent({ event_type, ref_source, element_id }) {
         ref_source: ref_source || null,
         element_id: element_id || null,
         user_agent: navigator.userAgent,
+        visitor_id: getVisitorId(),
       }),
     });
   } catch {
