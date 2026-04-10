@@ -1,0 +1,30 @@
+// Supabase REST API client (sem SDK — usa fetch nativo)
+const SUPABASE_URL = 'https://qgbxduvipeadycxremqa.supabase.co';
+const SUPABASE_ANON_KEY =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFnYnhkdXZpcGVhZHljeHJlbXFhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjYyNDMxNTMsImV4cCI6MjA4MTgxOTE1M30.IqbONOZfy6OUXSqARdzkIW1XZfhJu2CxMk5oeVhZtrc';
+
+/**
+ * Insere uma linha na tabela landingpage_reputamax via REST API.
+ * Usa a política RLS insert-only — nenhum dado pode ser lido pelo anon.
+ */
+export async function trackEvent({ event_type, ref_source, element_id }) {
+  try {
+    await fetch(`${SUPABASE_URL}/rest/v1/landingpage_reputamax`, {
+      method: 'POST',
+      headers: {
+        apikey: SUPABASE_ANON_KEY,
+        Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        'Content-Type': 'application/json',
+        Prefer: 'return=minimal',
+      },
+      body: JSON.stringify({
+        event_type,
+        ref_source: ref_source || null,
+        element_id: element_id || null,
+        user_agent: navigator.userAgent,
+      }),
+    });
+  } catch {
+    // Silencia erros de tracking para não afetar a UX
+  }
+}

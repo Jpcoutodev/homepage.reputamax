@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useAnalytics } from './hooks/useAnalytics';
 import {
   ArrowRight,
   Menu,
@@ -74,7 +75,7 @@ function Logo({ light = false }) {
   );
 }
 
-function Navbar() {
+function Navbar({ trackClick }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -116,6 +117,7 @@ function Navbar() {
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackClick('cta_navbar')}
           className="hidden rounded-full bg-mint px-5 py-2.5 text-sm font-semibold text-navy transition hover:bg-mint-light md:inline-flex"
         >
           Diagnóstico gratuito
@@ -145,6 +147,7 @@ function Navbar() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackClick('cta_navbar_mobile')}
               className="mt-2 rounded-full bg-mint px-5 py-3 text-center text-sm font-semibold text-navy"
             >
               Diagnóstico gratuito
@@ -329,7 +332,7 @@ function HeroMockup() {
   );
 }
 
-function Hero() {
+function Hero({ trackClick }) {
   return (
     <section
       id="top"
@@ -429,6 +432,7 @@ function Hero() {
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackClick('cta_hero')}
                 className="btn-primary"
               >
                 Quero melhorar minha nota
@@ -549,7 +553,7 @@ function Problem() {
   );
 }
 
-function Solution() {
+function Solution({ trackClick }) {
   const features = [
     {
       icon: Zap,
@@ -625,6 +629,7 @@ function Solution() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackClick('cta_solution')}
             className="btn-primary"
           >
             Quero melhorar minha nota
@@ -1044,7 +1049,7 @@ function FAQ() {
   );
 }
 
-function FinalCTA() {
+function FinalCTA({ trackClick }) {
   return (
     <section className="relative overflow-hidden bg-cta-gradient py-24 sm:py-32">
       <div
@@ -1078,6 +1083,7 @@ function FinalCTA() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackClick('cta_final')}
               className="btn-primary text-lg"
             >
               Quero melhorar minha nota
@@ -1155,13 +1161,14 @@ function Footer() {
   );
 }
 
-function FloatingWhatsApp() {
+function FloatingWhatsApp({ trackClick }) {
   return (
     <a
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar no WhatsApp"
+      onClick={() => trackClick('whatsapp_flutuante')}
       className="fixed bottom-6 right-6 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-whatsapp text-white shadow-glow-whatsapp transition hover:-translate-y-0.5 hover:bg-whatsapp-light sm:h-16 sm:w-16"
     >
       <MessageCircle className="h-7 w-7" strokeWidth={2.2} />
@@ -1172,23 +1179,24 @@ function FloatingWhatsApp() {
 
 export default function App() {
   useReveal();
+  const { trackClick } = useAnalytics();
 
   return (
     <div className="min-h-screen bg-white text-navy">
-      <Navbar />
+      <Navbar trackClick={trackClick} />
       <main>
-        <Hero />
+        <Hero trackClick={trackClick} />
         <Problem />
-        <Solution />
+        <Solution trackClick={trackClick} />
         <HowItWorks />
         <WhyActive />
         <Numbers />
         <ForWho />
         <FAQ />
-        <FinalCTA />
+        <FinalCTA trackClick={trackClick} />
       </main>
       <Footer />
-      <FloatingWhatsApp />
+      <FloatingWhatsApp trackClick={trackClick} />
     </div>
   );
 }
