@@ -1128,29 +1128,6 @@ function Footer() {
             </a>
           </div>
 
-          <div className="flex items-center gap-3">
-            <a
-              href="#"
-              aria-label="Instagram"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/65 transition hover:border-teal hover:text-teal"
-            >
-              <Instagram className="h-4 w-4" />
-            </a>
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/65 transition hover:border-teal hover:text-teal"
-            >
-              <Linkedin className="h-4 w-4" />
-            </a>
-            <a
-              href="#"
-              aria-label="YouTube"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 text-white/65 transition hover:border-teal hover:text-teal"
-            >
-              <Youtube className="h-4 w-4" />
-            </a>
-          </div>
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-white/45">
