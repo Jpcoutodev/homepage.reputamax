@@ -998,7 +998,7 @@ function FAQ() {
     },
     {
       q: 'O diagnóstico é realmente grátis?',
-      a: 'Sim, para sempre. Você pode ver o raio-x completo da sua reputação sem pagar nada. Os recursos avançados como respostas com IA e coleta de avaliações são dos planos pagos.',
+      a: 'Sim. Você pode ver o raio-x completo da sua reputação sem pagar nada. Os recursos avançados como respostas com IA e coleta de avaliações são dos planos pagos.',
     },
     {
       q: 'Funciona para qualquer tipo de negócio?',
