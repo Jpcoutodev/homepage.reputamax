@@ -524,7 +524,7 @@ function Problem() {
               <h3 className="relative mt-6 font-display text-xl font-bold text-navy">
                 {c.title}
               </h3>
-              <p className="relative mt-4 text-[15px] leading-relaxed text-slategray">
+              <p className="relative mt-4 text-base leading-relaxed text-slategray">
                 {c.text}
               </p>
             </article>
@@ -617,7 +617,7 @@ function Solution() {
               <h3 className="relative mt-6 font-display text-xl font-bold text-navy">
                 {f.title}
               </h3>
-              <p className="relative mt-3 text-[15px] leading-relaxed text-slategray">
+              <p className="relative mt-3 text-base leading-relaxed text-slategray">
                 {f.text}
               </p>
             </article>
@@ -699,7 +699,7 @@ function HowItWorks() {
               <h3 className="mt-6 font-display text-lg font-bold text-navy">
                 {s.title}
               </h3>
-              <p className="mt-2 text-[15px] leading-relaxed text-slategray">
+              <p className="mt-2 text-base leading-relaxed text-slategray">
                 {s.text}
               </p>
             </div>
@@ -757,7 +757,7 @@ function WhyActive() {
               {without.map((t, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 text-[15px] text-white/75"
+                  className="flex items-start gap-3 text-base text-white/75"
                 >
                   <XCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-red-400" />
                   {t}
@@ -779,7 +779,7 @@ function WhyActive() {
               {withR.map((t, i) => (
                 <li
                   key={i}
-                  className="flex items-start gap-3 text-[15px] text-white/90"
+                  className="flex items-start gap-3 text-base text-white/90"
                 >
                   <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-teal" />
                   {t}
@@ -980,7 +980,7 @@ function FAQItem({ q, a, open, onClick }) {
             maxHeight: open ? contentRef.current?.scrollHeight + 'px' : '0px',
           }}
         >
-          <p className="px-6 pb-6 text-[15px] leading-relaxed text-slategray">
+          <p className="px-6 pb-6 text-base leading-relaxed text-slategray">
             {a}
           </p>
         </div>
