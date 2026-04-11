@@ -22,6 +22,7 @@ import {
   Dumbbell,
   Scissors,
   Hotel,
+  Briefcase,
   Plus,
   Minus,
   Instagram,
@@ -896,6 +897,7 @@ function ForWho() {
     { icon: Dumbbell, label: 'Academias' },
     { icon: Scissors, label: 'Salões e estética' },
     { icon: Hotel, label: 'Hotéis e pousadas' },
+    { icon: Briefcase, label: 'Empresas diversas' },
   ];
 
   return (
@@ -915,15 +917,15 @@ function ForWho() {
         <div className="reveal mx-auto max-w-3xl text-center">
           <span className="eyebrow">Para quem é</span>
           <h2 className="section-title mt-5">
-            Feito para negócios locais que querem crescer
+            Feita para negócios que querem crescer
           </h2>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6">
+        <div className="mt-14 flex flex-wrap justify-center gap-5">
           {segments.map((s, i) => (
             <div
               key={i}
-              className="reveal group flex flex-col items-center gap-4 rounded-2xl border border-white bg-white p-6 text-center shadow-[0_10px_30px_-15px_rgba(26,26,46,0.2)] transition-all duration-500 hover:-translate-y-1.5 hover:border-teal/40 hover:shadow-[0_20px_50px_-15px_rgba(78,166,32,0.4)]"
+              className="reveal group flex w-[calc(50%-10px)] sm:w-[calc(33.33%-14px)] lg:w-48 flex-col items-center gap-4 rounded-2xl border border-white bg-white p-6 text-center shadow-[0_10px_30px_-15px_rgba(26,26,46,0.2)] transition-all duration-500 hover:-translate-y-1.5 hover:border-teal/40 hover:shadow-[0_20px_50px_-15px_rgba(78,166,32,0.4)]"
               style={{ transitionDelay: `${i * 50}ms` }}
             >
               <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-navy to-navy-light shadow-[0_8px_20px_-8px_rgba(78,166,32,0.5)] transition group-hover:shadow-glow">
