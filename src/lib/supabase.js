@@ -23,6 +23,12 @@ function getVisitorId() {
  */
 export async function trackEvent({ event_type, ref_source, element_id }) {
   try {
+    // Dispara Facebook Pixel "InitiateCheckout" para cliques nos botões do WhatsApp
+    if (event_type === 'button_click' && window.fbq) {
+      window.fbq('track', 'InitiateCheckout');
+    }
+
+
     await fetch(`${SUPABASE_URL}/rest/v1/landingpage_reputamax`, {
       method: 'POST',
       keepalive: true,
