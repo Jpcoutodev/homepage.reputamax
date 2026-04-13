@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { trackEvent } from './lib/supabase';
 import {
   ArrowRight,
@@ -1116,18 +1117,18 @@ function Footer() {
           </div>
 
           <div className="flex flex-col gap-4 sm:flex-row sm:gap-8">
-            <a
-              href="#"
+            <Link
+              to="/privacidade"
               className="text-sm text-white/65 transition hover:text-teal"
             >
               Política de Privacidade
-            </a>
-            <a
-              href="#"
+            </Link>
+            <Link
+              to="/termos"
               className="text-sm text-white/65 transition hover:text-teal"
             >
               Termos de Uso
-            </a>
+            </Link>
           </div>
 
         </div>
