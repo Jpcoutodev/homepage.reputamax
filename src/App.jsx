@@ -1012,6 +1012,10 @@ function FAQ() {
       a: 'O Reputamax combina respostas com IA, alertas em tempo real e um motor inteligente de coleta de avaliações. Na prática, sua nota sobe de forma consistente mês após mês, com mais avaliações positivas no Google e menos problemas públicos.',
     },
     {
+      q: 'Isso é compra de avaliações?',
+      a: 'Não. Compra de avaliações é uma prática proibida pelo Google e nós não fazemos isso. O Reputamax ajuda você a pedir avaliações aos seus clientes reais de forma ética e dentro das diretrizes do Google — nada de avaliações falsas ou pagas.',
+    },
+    {
       q: 'É seguro conectar minha conta Google?',
       a: 'Totalmente. Usamos o sistema oficial de autorização do Google (OAuth 2.0). Não temos acesso à sua senha e você pode desconectar a qualquer momento.',
     },
